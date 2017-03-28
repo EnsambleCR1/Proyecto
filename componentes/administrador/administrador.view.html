@@ -1,0 +1,47 @@
+<div ng-cloak="" class="inputdemoErrors">
+  <div layout="row" >
+    <md-sidenav layout-align="start center" md-is-locked-open="true"  flex="25">
+      <img src="componentes/imagenes/logoC.png" alt="logo Soft House">
+        <button class="sesion" layout-align="center end" ui-sref="administrador.carrera"> Carreras </button>
+        <button class="sesion" layout-align="center end" ui-sref="administrador.profesor"> Profesores </button>
+      <!--   <button class="sesion" layout-align="center end"> Reportes</button> -->
+       <!--  <button class="sesion" layout-align="center end"> Editar</button> -->
+        <button class="sesion" layout-align="center end" ui-sref="proyectos">Proyectos</button>
+        <button class="sesion" layout-align="center end" ui-sref="estadoEstudiante">Estudiantes</button>
+
+    </md-sidenav>
+
+    <md-content flex>
+      <md-nav-bar aria-label="nav-bar" class="md-whiteframe-4dp left" flex>
+        <span flex></span>
+        <div>
+          <i class="fa fa-bell-o" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Notificaciones</button>
+        </div>
+        <div>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Calendario</button>
+        </div>
+        <div>
+          <i class="fa fa-cog" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Opciones</button>
+        </div>
+        <div>
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Hola Usuario</button>
+        </div>
+        <div>
+          <i class="fa fa-power-off" aria-hidden="true"></i>
+        <button  class="session" ui-sref="inicio" layout-align="center end"> Salir</button>
+        </div>
+      </md-nav-bar>
+       <div class="container-fluid">
+        <h2>Bienvenido administrador</h2>
+        </div>
+      
+
+
+    <div ui-view></div>
+    </md-content>
+  </div>
+</div>

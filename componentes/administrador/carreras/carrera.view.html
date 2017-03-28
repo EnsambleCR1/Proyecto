@@ -1,0 +1,72 @@
+<div id="carreras">
+
+  <div class="row">
+
+    <div class="col-md-6 role text-center">
+      <h1>Agregar Carrera</h1>
+      <input type="text" name="" value="" placeholder="Ingresar Carrera" ng-model="carreraCtrl.nombre">
+      <button type="button" class="btn btn-primary" name="button" ng-click="carreraCtrl.save()">Agregar</button>
+    </div>
+
+    <div class="col-md-6 role text-center">
+      <h1>Eliminar Carrera</h1>
+      <select ng-model="carreraCtrl.carreraSeleccionada">
+        <option value="">--Seleccionar Carrera--</option>
+        <option value="{{carrera.nombre}}" ng-repeat="carrera in carreraCtrl.carreras">{{carrera.nombre}}</option>
+      </select>
+      <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.eliminar()">Eliminar</button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 role text-center">
+
+      <h1>Asignar Curso</h1>
+
+      <select ng-model="carreraCtrl.carreraSeleccionadaCurso">
+        <option value="">--Seleccionar Carrera--</option>
+        <option value="{{carrera.nombre}}" ng-repeat="carrera in carreraCtrl.carreras">{{carrera.nombre}}</option>
+      </select>
+      <br>
+      <input type="text" name="" value="" placeholder="Ingrese nombre del curso" ng-model="carreraCtrl.nombreCurso">
+      <br>
+      <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.asignar()">Asignar</button>
+
+    </div>
+
+    <div class="col-md-6 role text-center">
+      <h1>Eliminar Curso</h1>
+
+      <select ng-model="carreraCtrl.carreraSeleccionadaEliminarCurso">
+        <option value="{{carrera.nombre}}" ng-repeat="carrera in carreraCtrl.carreras">{{carrera.nombre}}</option>
+      </select>
+
+      <div ng-repeat="item in carreraCtrl.carreras | filter:{nombre:carreraCtrl.carreraSeleccionada}:true  track by $index">
+        <select ng-model="carreraCtrl.carreraEliminarCurso" >
+          <option ng-repeat="innerItem in item.cursos" ng-value="{{obj.name}}">{{innerItem.name}}</option>
+        </select>
+      </div>
+
+
+      <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.eliminarCurso()">Eliminar</button>
+    </div>
+
+
+  </div>
+
+  <table>
+  <thead>
+    <th>Carrera</th>
+    <th>Cursos</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="carrera in carreraCtrl.carreras">
+      <td>{{carrera.nombre}}</td>
+      <td>
+        <p ng-repeat="curso in carrera.cursos">{{curso.name}}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
