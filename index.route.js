@@ -39,6 +39,11 @@
       controller: 'carreraController',
       controllerAs: 'carreraCtrl'
     })
+    .state('administrador.curso',{
+      templateUrl: 'componentes/administrador/cursos/curso.view.html',
+      controller: 'cursoController',
+      controllerAs: 'cursoCtrl'
+    })
     .state('administrador.profesor',{
       templateUrl: 'componentes/administrador/profesores/edicionProfesor.view.html',
       controller: 'edicionProfesorController',

@@ -1,7 +1,6 @@
-<body data-spy="scroll" data-target="#scrollTarget" data-offset="50">
-<div  id="landing">
+<div  id="landing" data-spy="scroll" data-target="" data-offset="50">
   <header id="header">
-    <nav class="navbar navbar-default navbar-fixed-top" id="scrollTarget">
+    <nav class="navbar navbar-default navbar-fixed-top" id="navPills">
       <div class="container-fluid no-padding">
         <div class="navbar-collapse navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
@@ -14,16 +13,18 @@
         </div><!--navbar-header-->
         <div class="collapse navbar-collapse" id="collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#solicitudes">Solicitudes</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a class="active"ui-sref="inicio({'#':'nosotros'})">Nosotros</a></li>
+            <li><a ui-sref="inicio({'#':'servicios'})">Servicios</a></li>
+            <li><a ui-sref="inicio({'#':'solicitudes'})">Solicitudes</a></li>
+            <li><a ui-sref="inicio({'#':'contacto'})">Contacto</a></li>
             <li><a ui-sref="inicioSesion">Iniciar sesión</a></li>
           </ul>
         </div><!--collapse navbar-collapse-->
       </div><!--container-fluid-->
     </nav>
   </header>
+
+
 
   <section id="cover"><!--cover-->
     <div class="container-fluid">
@@ -37,7 +38,7 @@
           <p>
             Su casa para recibir servicios profesionales en tecnologías de información, de gran calidad, diseñados y construidos por estudiantes y profesores de la Universidad Cenfotec para la comunidad.
           </p>
-          <a href="#solicitudes" class="btn btn-primary">Solicitar</a>
+          <a ui-sref="inicio({'#':'solicitudes'})" class="btn btn-primary">Solicitar</a>
         </div><!--col-md-6-->
       </div><!--row-->
     </div><!--container-fluid-->
@@ -133,9 +134,9 @@
           <div id="solicitudEstudiante" class="solicitud">
             <h3>Forma parte de Cenfotec Software House</h3>
             <p>
-              Si eres estudiante activo o egresado de la Universidad Cenfotec y querés formar parte de Cenfotec Software House envíanos tus datos! 
+              Si eres estudiante activo o egresado de la Universidad Cenfotec y quieres formar parte de Cenfotec Software House envíanos tus datos!
             </p>
-            <button class="btn btn-primary" ui-sref="solicitudEstudiante">Solicitud Estudiantes</button>
+            <button class="btn btn-primary" ui-sref="solicitudEstudiante">Solicitud estudiantes</button>
           </div><!--#solicitudEstudiante-->
         </div><!--col-md-6-->
 
@@ -143,9 +144,9 @@
           <div id="solicitudEmpresarial" class="solicitud">
             <h3>Permítanos desarrollar sus ideas</h3>
             <p>
-              De la mano de profesionales, desarrolla y reinventa tus ideas! Solicita el servicio llenando el formulario y su solicitud será evaluada por el comité de Cenfotec Software House.
+              De la mano de profesionales, desarrolle y reinvente sus ideas! Solicite el servicio llenando el formulario y su solicitud será evaluada por el comité de Cenfotec Software House.
             </p>
-            <button class="btn btn-primary" ui-sref="empresa">Solicitud Empresarial</button>
+            <button class="btn btn-primary" ui-sref="empresa">Solicitud empresarial</button>
           </div><!--#solicitudEmpresarial-->
         </div><!--col-md-6-->
 
@@ -156,46 +157,31 @@
   <footer id="contacto">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6" id="left-side-contact">
+        <div class="col-sm-12 col-md-6" id="left-side-contact">
           <h2>Contáctenos</h2>
-          <div class="contacto">
-            <div class="">
-              <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
-            </div>
-            <div class="">
-              <p>
-                Santa Marta - San Pedro de Montes Oca, del Cruce de la Escuela de Santa Marta 400 metros noreste carretera al Cristo de Sabanilla.
-              </p>
-              <p>
-                San José, Costa Rica
-              </p>
-            </div>
-          </div><!--#contacto-->
-          <div class="contacto">
-            <div class="">
-              <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-            </div>
-            <div class="">
-              <a href="mailto:softwarehouse@ucenfotec.ac.cr" target="_top">softwarehouse@ucenfotec.ac.cr</a>
-            </div>
-          </div><!--#contacto-->
-          <div class="clearfix"></div>
-          <div class="contacto">
-            <div class="">
-              <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
-            </div>
-            <div class="">
-              <p>+506 2281-1555</p>
-            </div>
-          </div><!--#contacto-->
-          <div class="clearfix"></div>
-          <div class="col-md-4 col-md-offset-8">
-              <a href="https://www.ucenfotec.ac.cr/"><img src="componentes/imagenes/logo-cenfotec.png" class="img-responsive" width="100px"alt=""></a>
-          </div><!--col-md-4-->
+          <table>
+            <tr>
+              <td><i class="fa fa-map-marker fa-3x" aria-hidden="true"></i></td>
+              <td>
+                <p>Santa Marta - San Pedro de Montes Oca, del Cruce de la Escuela de Santa Marta 400 metros noreste carretera al Cristo de Sabanilla.</p>
+                <p>San José, Costa Rica.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i></td>
+              <td><a href="mailto:softwarehouse@ucenfotec.ac.cr" target="_top">softwarehouse@ucenfotec.ac.cr</a></td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-phone fa-3x" aria-hidden="true"></i></td>
+              <td>+506 2281-1555</td>
+            </tr>
+          </table>
+           <a href="https://www.ucenfotec.ac.cr/"><img src="componentes/imagenes/logo-cenfotec.png" class="img-responsive pull-right" width="100px"alt=""></a>
+
         </div><!--col-md-6-->
 
-        <div class="col-md-6" id="right-side-contact">
-          <h2 class="text-center">Síguenos en </h2>
+        <div class="col-sm-12 col-md-6" id="right-side-contact">
+          <h2 class="text-center">Síganos en </h2>
           <div class="social-media-contact text-center">
             <a href="https://twitter.com/UCenfotec"><i class="fa fa-twitter fa-4x" aria-hidden="true"></i></a>
             <a href="https://www.facebook.com/Cenfotec"><i class="fa fa-facebook fa-4x" aria-hidden="true"></i></a>
@@ -211,4 +197,3 @@
     </div><!--container-fluid-->
   </footer><!--#contacto-->
 </div>
-</body>

@@ -1,14 +1,103 @@
 <div id="carreras">
+  <div class="row no-margin">
 
-  <div class="row">
-
-    <div class="col-md-6 role text-center">
-      <h1>Agregar Carrera</h1>
-      <input type="text" name="" value="" placeholder="Ingresar Carrera" ng-model="carreraCtrl.nombre">
-      <button type="button" class="btn btn-primary" name="button" ng-click="carreraCtrl.save()">Agregar</button>
+    <div class="col-md-12">
+      <h2 class="text-center">Carreras</h2>
     </div>
 
-    <div class="col-md-6 role text-center">
+
+
+    <form name="formularioCarrera" novalidate="">
+
+      <div class="row text-center">
+
+        <div class="col-md-3 col-md-offset-3" ng-class="
+        {
+          'errorBorder': formularioCarrera.codigo.$invalid && !formularioCarrera.codigo.$pristine
+        }
+        ">
+
+          <input type="text" class="form-control" name="codigo" placeholder="Código" ng-model="carreraCtrl.codigoCarrera" ng-pattern="/^[a-zA-ZáÁéÉíÍóÓúÚñ ]*$/" required>
+          <div ng-messages="formularioCarrera.codigo.$error" class="error">
+            <div ng-message-exp="'required'">Campo requerido!</div>
+            <div ng-message-exp="'pattern'">Este campo solo permite letras</div>
+          </div>
+        </div>
+
+        <div class="col-md-3" ng-class="
+        {
+          'errorBorder': formularioCarrera.nombre.$invalid && !formularioCarrera.nombre.$pristine
+        }
+        ">
+          <input type="text" class="form-control" name="nombre" placeholder="Ingresar nombre de la carrera" ng-model="carreraCtrl.nombre" ng-pattern="/^[a-zA-ZáÁéÉíÍóÓúÚ ]*$/" required>
+          <div ng-messages="formularioCarrera.nombre.$error" class="error">
+            <div ng-message-exp="'required'">Campo requerido!</div>
+            <div ng-message-exp="'pattern'">Este campo solo permite letras</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-3 col-md-offset-3" ng-class="
+        {
+          'errorBorder': formularioCarrera.nivel.$invalid && !formularioCarrera.nivel.$pristine
+        }
+        ">
+        
+          <select class="form-control" name="nivel" ng-model="carreraCtrl.nivel" required>
+            <option value="">--Seleccione nivel--</option>
+            <option value="Técnico">Técnico</option>
+            <option value="Diplomado">Diplomado</option>
+            <option value="Bachillerato">Bachillerato</option>
+            <option value="Licenciatura">Licenciatura</option>
+          </select>
+
+          <div ng-messages="formularioCarrera.nivel.$error" class="error">
+            <div ng-message-exp="'required'">Campo requerido!</div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary pull-right" name="button" ng-click="carreraCtrl.save()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+
+      </div>
+
+
+      </form>
+
+
+
+
+      <div class="col-md-6 col-md-offset-3">
+        <table class="table text-center">
+          <tr>
+            <th class="text-center">Código</th>
+            <th class="text-center">Nombre de la carrerra</th>
+            <th class="text-center">Nivel</th>
+            <th class="text-center">Eliminar</th>
+          </tr>
+          <tbody>
+            <tr ng-repeat="carrera in carreraCtrl.carreras">
+              <td>{{carrera.codigoCarrera}}</td>
+              <td>{{carrera.nombre}}</td>
+              <td>{{carrera.nivel}}</td>
+              <td><button type="button" ng-click="carreraCtrl.eliminarCarrera(carrera.codigoCarrera, $event)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+    <!-- <div class="col-md-6 text-center">
       <h1>Eliminar Carrera</h1>
       <select ng-model="carreraCtrl.carreraSeleccionada">
         <option value="">--Seleccionar Carrera--</option>
@@ -50,10 +139,10 @@
 
 
       <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.eliminarCurso()">Eliminar</button>
-    </div>
+    </div> -->
 
 
-  </div>
+  <!-- </div>
 
   <table>
   <thead>
@@ -68,5 +157,4 @@
       </td>
     </tr>
   </tbody>
-</table>
-</div>
+</table> -->

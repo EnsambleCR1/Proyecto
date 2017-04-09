@@ -6,18 +6,41 @@
   function administradorService(inicioSesionService){
     var carreras = [
     {
-        nombre: "Diseño y Desarrollo Web",
+        nombre : 'Diseño y Desarrollo Web',
+        codigoCarrera : 'WEBTEC',
+        nivel : 'Técnico',
       cursos:
-      [  {name : "Fundamentos de Programación"},
-         {name :"Diseño Web I"},
-        {name :"Diseño Web II"}
+      [
+        {
+         codigoCurso : 'WEBTEC01',
+         curso : 'Fundamentos de Programación'
+        },
+
+        {
+         codigoCurso : 'WEBTEC02',
+         curso :'Diseño Web I'
+        },
+
+        {
+         codigoCurso : 'WEBTEC03',
+         curso :'Diseño Web II'
+        },
+
       ]
     },
       {
-        nombre: "Telemática",
-        cursos: [
-          {name :"Redes I"},
-          {name :"Redes II"}
+        nombre : 'Telemática',
+        codigoCarrera : 'TELTEC',
+        nivel : 'Técnico',
+        cursos : [
+          {
+           codigoCurso : 'TELTEC01',
+           curso : 'Redes I'
+          },
+          {
+           codigoCurso : 'TELTEC-02',
+           curso : 'Redes II'
+          }
          ]
       }
     ];
@@ -36,7 +59,7 @@
       setCarreras : _setCarreras,
       getCarreras : _getCarreras,
       getCursosOpciones : _getCursosOpciones,
-      getCarreraID : _getCarreraID,
+      getCarreraCodigoIndex : _getCarreraCodigoIndex,
       eliminarCarrera : _eliminarCarrera,
       asignarCurso : _asignarCurso,
       getCursoIndex : _getCursoIndex,
@@ -59,14 +82,17 @@
       return cursosOpciones;
     }
 
-    function _getCarreraID(pCarrera) {
+    function _getCarreraCodigoIndex(pCodigoCarrera) {
       var carreraIndex = -1;
       for (var i = 0; i < carreras.length; i++) {
-        if (pCarrera == carreras[i].nombre ) {
+        if (pCodigoCarrera == carreras[i].codigoCarrera ) {
           carreraIndex = i;
         }
       }
       return carreraIndex;
+
+
+
     }
 
     function _eliminarCarrera(pCarrera) {
@@ -104,7 +130,7 @@
     function _setProfesores(pProfesor) {
       preofesores = _getProfesores();
       preofesores.push(pProfesor);
-      localStorage.setItem('profesoreslLS',JSON.stringify(preofesores)); 
+      localStorage.setItem('profesoreslLS',JSON.stringify(preofesores));
       // profesores.push(pProfesor);
       // usuarios.push(pProfesor);
     }
